@@ -15,10 +15,10 @@ If you are windows user who uses python for the first time, I recommend to insta
 The input parameters are as follows:<br>
 
 - ***al_em(3)*** <br>
-Size of simulation box in electromagnetic analysis. This must match the input parameter in SALMON.
+Size of simulation box in electromagnetic analysis. **This must match the input parameter in SALMON**.
 
 - ***dl_em(3)*** <br>
-Spacing of real-space grids in electromagnetic analysis. This must match the input parameter in SALMON.
+Spacing of real-space grids in electromagnetic analysis. **This must match the input parameter in SALMON**.
 
 - ***n_s*** <br>
 Number of shape-templates. Maximum is 200.
@@ -33,7 +33,7 @@ Type of output file. `'cube'` and `'mp'` can be chosen. If `'cube'`, the output 
 Type of x-th shape-template. Maximum of x is `n_s`. `'ellipsoid'`, `'half-ellipsoid'`, `'elliptic-cylinder'`, `'triangular-cylinder'`, `'rectangular-cylinder'`, `'elliptic-cone'`, `'triangular-cone'`, and `'rectangular-cone'` can be chosen.
 
 - ***id_s(x)*** <br>
-ID number of x-th shape-template. This ID number must match the index of the input parameter in SALMON(e.g. `epsilon`, `rmu`, and `sigma`).
+ID number of x-th shape-template. **This ID number must match the index of the input parameter in SALMON**(e.g. `epsilon`, `rmu`, and `sigma`).
 
 - ***inf_s(x,:)*** <br>
 Information of x-th shape-template. See `about_inf_s.pdf` in detail.
