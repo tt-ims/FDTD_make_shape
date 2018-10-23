@@ -36,7 +36,7 @@ Type of x-th shape-template. Maximum of x is `n_s`. `'ellipsoid'`, `'half-ellips
 ID number of x-th shape-template. **This ID number must match the index of the input parameter in SALMON**(e.g. `epsilon`, `rmu`, and `sigma`).
 
 - ***inf_s(x,:)*** <br>
-Information of x-th shape-template. See `about_inf_s.pdf` in detail.
+Information of x-th shape-template. This depends on `typ_s`. See `about_inf_s.pdf` in detail.
 
 - ***ori_s(x,3)*** <br>
 Origin of x-th shape-template.
