@@ -17,10 +17,19 @@ If you are windows user who uses python for the first time, I recommend to insta
 The input parameters are as follows:<br>
 
 - ***al_em(3)*** <br>
-Size of simulation box in electromagnetic analysis.
+Size of simulation box in electromagnetic analysis. This must match the input parameter in SALMON.
 
 - ***dl_em(3)*** <br>
-Spacing of real-space grids in electromagnetic analysis.
+Spacing of real-space grids in electromagnetic analysis. This must match the input parameter in SALMON.
+
+- ***n_s*** <br>
+tes.
+
+- ***output*** <br>
+tes.
+
+- ***rot_type*** <br>
+Type of rotation. 'degree' and 'radian' can be chosen. Default is `'radian'`.
 
 ## External Links
 
