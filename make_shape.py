@@ -22,7 +22,7 @@ def write_list(var1,var2):
 ###############################################################################
 #set maximum and initialize variables
 n_s_max=200+1 #+1 is introduced to ensure consistency with the input.
-al=0, 0, 0; dl=0, 0, 0; n_s=0; output='none'; rot_type='none';
+al=0, 0, 0; dl=0, 0, 0; n_s=0; output='cube'; rot_type='radian';
 typ_s=init_1d_list(n_s_max)
 id_s=init_1d_list(n_s_max)
 inf_s=np.zeros((n_s_max,10+1)) #+1 is introduced to ensure consistency with the input.
