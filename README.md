@@ -39,10 +39,10 @@ ID number of x-th shape-template. This ID number must match the index of the inp
 Information of x-th shape-template. See `about_inf_s.pdf` in detail.
 
 - ***ori_s(x,3)*** <br>
-Tes.
+Origin of x-th shape-template.
 
 - ***rot_s(x,3)*** <br>
-Tes.
+Rotation angle of x-th shape-template. Rotation axes of `rot_s(x,1:3)` correspond to x-, y-, and z-axes, respectively. 
 
 ## External Links
 
