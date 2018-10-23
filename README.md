@@ -16,12 +16,11 @@ If you are windows user who uses python for the first time, I recommend to insta
 `shape.inp` is a input file for this program. `shape.inp` and `make_shape.py` **must be in the same hierarchy**.<br>
 <br>
 The input parameters are as follows:<br>
-<br>
 
-- ***al_em(3)***
+- ***al_em(3)*** <br>
  Size of simulation box in electromagnetic analysis.
 
-- ***dl_em(3)***
+- ***dl_em(3)*** <br>
  Spacing of real-space grids in electromagnetic analysis.
  
 ## External Links
