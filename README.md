@@ -30,7 +30,7 @@ Type of rotation for shape-template. `'degree'` and `'radian'` can be chosen. De
 Type of output file. `'cube'` and `'mp'` can be chosen. Default is `'cube'`.
 
 - ***typ_s(x)*** <br>
-Type of x th shape-templates. Maximum of x is determined by `n_s`.
+Type of x-th shape-templates. Maximum of x is `n_s`. `'ellipsoid'`, `'half-ellipsoid'`, `'elliptic-cylinder'`, `'triangular-cylinder'`, `'rectangular-cylinder'`, `'elliptic-cone'`, `'triangular-cone'`, and `'rectangular-cone'` can be chosen.
 
 - ***id_s(x)*** <br>
 Tes.
