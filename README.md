@@ -9,6 +9,12 @@
 
 If you are windows user who uses python for the first time, I recommend to install [WinPython](https://sourceforge.net/projects/winpython/) that includes all requirements for this program.
 
+## Usage
+
+### shape.inp
+
+`shape.inp` is a input file for this program. `shape.inp` and 'make_shape.py' must be in the same hierarchy.
+
 ## External Links
 
 ### SALMON Project
