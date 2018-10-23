@@ -17,11 +17,11 @@ If you are windows user who uses python for the first time, I recommend to insta
 <br>
 The input parameters are as follows:<br>
 <br>
-al_em(3);
-<dd>Size of simulation box in electromagnetic analysis.<br>
+***al_em(3)***
+<dd>Size of simulation box in electromagnetic analysis.</dd><br>
 <br>
-dl_em(3);
-<dd>Spacing of real-space grids in electromagnetic analysis.<br>
+***dl_em(3)***
+<dd>Spacing of real-space grids in electromagnetic analysis.</dd><br>
 <br>
  
 ## External Links
