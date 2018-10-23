@@ -1,3 +1,6 @@
 # FDTD_make_shape
 
-A shape file generator for FDTD program in SALMON
+[SALMON](#SALMON) has a FDTD functionality to simulate electromagnetic problems. This program makes the input shape file.
+
+
+
