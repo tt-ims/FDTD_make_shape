@@ -27,7 +27,7 @@ Number of shape-templates. Maximum is 200.
 Type of rotation for shape-template. `'degree'` and `'radian'` can be chosen. Default is `'radian'`.
 
 - ***output*** <br>
-Type of output file. `'cube'` and `'mp'` can be chosen. Default is `'cube'`.
+Type of output file. `'cube'` and `'mp'` can be chosen. If `'cube'`, the output file can be drawn by [ParaView](https://www.paraview.org/download/)(Usage: Molecule→Apply→Gridded Data→Representation→Volume). Default is `'cube'`.
 
 - ***typ_s(x)*** <br>
 Type of x-th shape-template. Maximum of x is `n_s`. `'ellipsoid'`, `'half-ellipsoid'`, `'elliptic-cylinder'`, `'triangular-cylinder'`, `'rectangular-cylinder'`, `'elliptic-cone'`, `'triangular-cone'`, and `'rectangular-cone'` can be chosen.
