@@ -11,9 +11,7 @@ If you are windows user who uses python for the first time, I recommend to insta
 
 ## Usage
 
-### shape.inp
-
-`shape.inp` is a input file for this program. `shape.inp` and `make_shape.py` **must be in the same hierarchy**.<br>
+`shape.inp` is a input file for this program. `make_shape.py` is an executable file. `shape.inp` and `make_shape.py` **must be in the same hierarchy**.<br>
 The input parameters are as follows:<br>
 
 - ***al_em(3)*** <br>
