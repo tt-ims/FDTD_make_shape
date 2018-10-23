@@ -13,7 +13,7 @@ If you are windows user who uses python for the first time, I recommend to insta
 
 ### shape.inp
 
-`shape.inp` is a input file for this program. `shape.inp` and `make_shape.py` <u>must be in the same hierarchy</u>.
+`shape.inp` is a input file for this program. `shape.inp` and `make_shape.py` ***must be in the same hierarchy***.
 
 ## External Links
 
