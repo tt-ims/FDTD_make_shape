@@ -23,26 +23,26 @@ Spacing of real-space grids in electromagnetic analysis. This must match the inp
 - ***n_s*** <br>
 Number of shape-templates. Maximum is 200.
 
+- ***rot_type*** <br>
+Type of rotation for shape-template. `'degree'` and `'radian'` can be chosen. Default is `'radian'`.
+
 - ***output*** <br>
 Type of output file. `'cube'` and `'mp'` can be chosen. Default is `'cube'`.
 
-- ***typ_s(n_s)*** <br>
+- ***typ_s(x)*** <br>
+Type of x th shape-templates. Maximum of x is determined by `n_s`.
+
+- ***id_s(x)*** <br>
 Tes.
 
-- ***id_s(n_s)*** <br>
+- ***inf_s(x,:)*** <br>
 Tes.
 
-- ***inf_s(n_s,:)*** <br>
+- ***ori_s(x,3)*** <br>
 Tes.
 
-- ***ori_s(n_s,3)*** <br>
+- ***rot_s(x,3)*** <br>
 Tes.
-
-- ***rot_s(n_s,3)*** <br>
-Tes.
-
-- ***rot_type*** <br>
-Type of rotation for shape-template. `'degree'` and `'radian'` can be chosen. Default is `'radian'`.
 
 ## External Links
 
