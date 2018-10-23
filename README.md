@@ -33,7 +33,7 @@ Type of output file. `'cube'` and `'mp'` can be chosen. Default is `'cube'`.
 Type of x-th shape-templates. Maximum of x is `n_s`. `'ellipsoid'`, `'half-ellipsoid'`, `'elliptic-cylinder'`, `'triangular-cylinder'`, `'rectangular-cylinder'`, `'elliptic-cone'`, `'triangular-cone'`, and `'rectangular-cone'` can be chosen.
 
 - ***id_s(x)*** <br>
-ID number of x-th shape-templates. This ID must match the index of the input parameter(e.g. epsilon, rmu, and sigma) in SALMON.
+ID number of x-th shape-templates. This ID number must match the index of the input parameter in SALMON(e.g. epsilon, rmu, and sigma).
 
 - ***inf_s(x,:)*** <br>
 Tes.
