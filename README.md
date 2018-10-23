@@ -23,13 +23,13 @@ Size of simulation box in electromagnetic analysis. This must match the input pa
 Spacing of real-space grids in electromagnetic analysis. This must match the input parameter in SALMON.
 
 - ***n_s*** <br>
-tes.
+Number of shape-templates. Maximum is 200.
 
 - ***output*** <br>
-tes.
+Type of output file. `'cube'` and `'mp'` can be chosen. Default is `'cube'`.
 
 - ***rot_type*** <br>
-Type of rotation. 'degree' and 'radian' can be chosen. Default is `'radian'`.
+Type of rotation. `'degree'` and `'radian'` can be chosen. Default is `'radian'`.
 
 ## External Links
 
