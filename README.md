@@ -26,8 +26,23 @@ Number of shape-templates. Maximum is 200.
 - ***output*** <br>
 Type of output file. `'cube'` and `'mp'` can be chosen. Default is `'cube'`.
 
+- ***typ_s(n_s)*** <br>
+Tes.
+
+- ***id_s(n_s)*** <br>
+Tes.
+
+- ***inf_s(n_s,:)*** <br>
+Tes.
+
+- ***ori_s(n_s,3)*** <br>
+Tes.
+
+- ***rot_s(n_s,3)*** <br>
+Tes.
+
 - ***rot_type*** <br>
-Type of rotation. `'degree'` and `'radian'` can be chosen. Default is `'radian'`.
+Type of rotation for shape-template. `'degree'` and `'radian'` can be chosen. Default is `'radian'`.
 
 ## External Links
 
