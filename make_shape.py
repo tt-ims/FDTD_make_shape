@@ -109,7 +109,7 @@ for n in range(1,n_s+1): #+1 is introduced to ensure consistency with the input.
                 elif typ_s[n]=='half-ellipsoid':
                     cal_tmp=(x/(inf_s[n,1]/2))**2 \
                             + (y/(inf_s[n,2]/2))**2 \
-                            + (z/(inf_s[n,3]/2))**2
+                            + (z/inf_s[n,3])**2
                     if cal_tmp<=1 and z>=0:
                         shape[i,j,k]=id_s[n]
                 elif typ_s[n]=='elliptic-cylinder':

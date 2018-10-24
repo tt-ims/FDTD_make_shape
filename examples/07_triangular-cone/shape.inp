@@ -17,11 +17,11 @@
 al_em    = 16.25d0, 16.25d0, 16.25d0
 dl_em    = 0.25d0, 0.25d0, 0.25d0
 n_s      = 1
-output   = 'cube'
 rot_type = 'degree'
+output   = 'cube'
 
 #Shaping inputs#######################################################
-typ_s(1)   = 'ellipsoid'
+typ_s(1)   = 'triangular-cone'
 id_s(1)    = 1
 inf_s(1,1) = 8.0d0
 inf_s(1,2) = 6.0d0
