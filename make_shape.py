@@ -28,6 +28,7 @@ id_s=init_1d_list(n_s_max)
 inf_s=np.zeros((n_s_max,10+1)) #+1 is introduced to ensure consistency with the input.
 ori_s=np.zeros((n_s_max,3))
 rot_s=np.zeros((n_s_max,3))
+adj_err=1e-6
 #load input file
 f = open('shape.inp')
 tmp_inp = f.readlines()
@@ -110,7 +111,7 @@ for n in range(1,n_s+1): #+1 is introduced to ensure consistency with the input.
                     cal_tmp=(x/(inf_s[n,1]/2))**2 \
                             + (y/(inf_s[n,2]/2))**2 \
                             + (z/inf_s[n,3])**2
-                    if cal_tmp<=1 and z>=0:
+                    if cal_tmp<=1 and z>=-adj_err:
                         shape[i,j,k]=id_s[n]
                 elif typ_s[n]=='elliptic-cylinder':
                     cal_tmp=(x/(inf_s[n,1]/2))**2 \
@@ -130,9 +131,12 @@ for n in range(1,n_s+1): #+1 is introduced to ensure consistency with the input.
                     and z>=-inf_s[n,3]/2 and z<=inf_s[n,3]/2:
                         shape[i,j,k]=id_s[n]
                 elif typ_s[n]=='elliptic-cone':
-                    cal_tmp=(x/( inf_s[n,1]/2*(inf_s[n,3]-z)/inf_s[n,3] ))**2 \
-                            + (y/( inf_s[n,2]/2*(inf_s[n,3]-z)/inf_s[n,3] ))**2
-                    if cal_tmp<=1 and z>=0 and z<=inf_s[n,3]:
+                    if inf_s[n,3]-z!=0:
+                        cal_tmp=(x/( inf_s[n,1]/2*(inf_s[n,3]-z)/inf_s[n,3] ))**2 \
+                                + (y/( inf_s[n,2]/2*(inf_s[n,3]-z)/inf_s[n,3] ))**2
+                    else:
+                        cal_tmp=10
+                    if cal_tmp<=1 and z>=-adj_err and z<=inf_s[n,3]:
                         shape[i,j,k]=id_s[n]
                 elif typ_s[n]=='triangular-cone':
                     if x>=-inf_s[n,1]/2*(inf_s[n,3]-z)/inf_s[n,3] \
@@ -142,14 +146,14 @@ for n in range(1,n_s+1): #+1 is introduced to ensure consistency with the input.
                             +inf_s[n,2]*2/3*(inf_s[n,3]-z)/inf_s[n,3] \
                     and y<=-inf_s[n,2]/(inf_s[n,1]/2)*x \
                             +inf_s[n,2]*2/3*(inf_s[n,3]-z)/inf_s[n,3] \
-                    and z>=0 and z<=inf_s[n,3]:
+                    and z>=-adj_err and z<=inf_s[n,3]:
                         shape[i,j,k]=id_s[n]
                 elif typ_s[n]=='rectangular-cone':
                     if x>= -inf_s[n,1]/2*(inf_s[n,3]-z)/inf_s[n,3] \
                     and x<= inf_s[n,1]/2*(inf_s[n,3]-z)/inf_s[n,3] \
                     and y>=-inf_s[n,2]/2*(inf_s[n,3]-z)/inf_s[n,3] \
                     and y<= inf_s[n,2]/2*(inf_s[n,3]-z)/inf_s[n,3] \
-                    and z>=0 and z<=inf_s[n,3]:
+                    and z>=-adj_err and z<=inf_s[n,3]:
                         shape[i,j,k]=id_s[n]
 del cal_tmp, n, i, j, k, x_tmp, y_tmp, z_tmp, x, y, z
 ###############################################################################
@@ -212,7 +216,7 @@ elif output == 'mp':
 elapsed_time = ti.time() - start_time
 print ("elapsed time:{0}".format(elapsed_time) + "[sec]")
 #delete all variables
-del al, dl, n_s, output, rot_type, typ_s, id_s, inf_s, ori_s, rot_s, \
+del al, dl, n_s, output, rot_type, typ_s, id_s, inf_s, ori_s, rot_s, adj_err, \
     n_s_max, g_num, g_type, coo, shape, \
     start_time, elapsed_time
 del f, init_1d_list, write_list
