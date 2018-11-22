@@ -155,6 +155,14 @@ for n in range(1,n_s+1): #+1 is introduced to ensure consistency with the input.
                     and y<= inf_s[n,2]/2*(inf_s[n,3]-z)/inf_s[n,3] \
                     and z>=-adj_err and z<=inf_s[n,3]:
                         shape[i,j,k]=id_s[n]
+                elif typ_s[n]=='elliptic-ring':
+                    cal_tmp=(x/(inf_s[n,1]/2))**2 \
+                            + (y/(inf_s[n,2]/2))**2
+                    if cal_tmp<=1 and z>=-inf_s[n,3]/2 and z<=inf_s[n,3]/2:
+                        cal_tmp=(x/(inf_s[n,4]/2))**2 \
+                                + (y/(inf_s[n,5]/2))**2
+                        if cal_tmp>=1:
+                            shape[i,j,k]=id_s[n]
 del cal_tmp, n, i, j, k, x_tmp, y_tmp, z_tmp, x, y, z
 ###############################################################################
 #output########################################################################

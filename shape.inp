@@ -10,7 +10,8 @@
 # * typ_s has to be set by                                           #
 #   'ellipsoid','half-ellipsoid',                                    #
 #   'elliptic-cylinder','triangular-cylinder','rectangular-cylinder',#
-#   'elliptic-cone','triangular-cone', or 'rectangular-cone'.        #
+#   'elliptic-cone','triangular-cone','rectangular-cone',            #
+#   or 'elliptic-ring'.                                              #
 ######################################################################
 
 #Basic inputs#########################################################
