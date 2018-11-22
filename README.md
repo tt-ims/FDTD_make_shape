@@ -2,7 +2,7 @@
 
 [SALMON](https://salmon-tddft.jp/) has a FDTD functionality to solve electromagnetic problems. This program makes the input shape file.
 
-![figure](examples/01_ellipsoid/image.png)
+![figure](examples/09_elliptic-ring/image.png)
 
 ## Requirements
 
