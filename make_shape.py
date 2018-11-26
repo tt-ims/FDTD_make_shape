@@ -177,14 +177,33 @@ if output == 'cube':
     write_list(f,[g_num[1],0,dl[1],0])
     write_list(f,[g_num[2],0,0,dl[2]])
     write_list(f,[1,1,0,0,0])
-    #set shaping data
-    inp_tmp=init_1d_list(g_num[2])
-    for i in range(g_num[0]):
-        for j in range(g_num[1]):
-            for k in range(g_num[2]):
-                inp_tmp[k]=int(shape[i,j,k])
-            write_list(f,inp_tmp)
-    del i, j, k, inp_tmp
+    #output shape data
+    n_write=0; i=0; j=0; k=0;
+    inp_tmp=init_1d_list(6);
+    for n in range(g_num[0]*g_num[1]*g_num[2]):
+        inp_tmp[n_write]=int(shape[i,j,k])
+        #output and update n
+        if n_write>0 and (n_write%(6-1))==0:
+            write_list(f,inp_tmp);
+            n_write=0
+        else:
+            n_write=n_write+1
+        #update k 
+        k=k+1
+        if k==g_num[2]: k=0
+        #update j
+        if k==0: j=j+1
+        if j==g_num[1]: j=0
+        #update i
+        if k==0 and j==0: i=i+1
+        #final output for special case
+        if n==(g_num[0]*g_num[1]*g_num[2]-1) and n_write>0:
+            inp_tmp2=init_1d_list(n_write);
+            for n2 in range(n_write):
+                inp_tmp2[n2]=inp_tmp[n2]
+            write_list(f,inp_tmp2);
+            del inp_tmp2, n2
+    del n, n_write, i, j, k, inp_tmp
     f.close()
 elif output == 'mp':
     #set basic data
@@ -205,7 +224,7 @@ elif output == 'mp':
         write_list(f,['  nmacro('+str(n)+') =',inp_tmp[n]])
     del n
     f.write('/\n')
-    #set shaping data
+    #output shape data
     del i, j, k
     inp_tmp=0
     for i in range(g_num[0]):
