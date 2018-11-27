@@ -25,11 +25,14 @@ Spacing of real-space grids in electromagnetic analysis. **This must match the i
 - ***n_s*** <br>
 Number of shape-templates. Maximum is 200.
 
-- ***rot_type*** <br>
-Type of rotation for shape-template. `'degree'` and `'radian'` can be chosen. Default is `'radian'`.
+- ***iperiodic*** <br>
+Dimension for periodic boundary condition. `0` is for isolated systems, and `3` is for periodic systems. Note that the coordinate system ranges from `-al_em/2` to `al_em/2` for `iperiodic=0` while ranges from `0` to `al_em` for `iperiodic=3`. Default is `0`.
 
 - ***output*** <br>
-Type of output file. `'cube'` and `'mp'` can be chosen. If `'cube'`, the output file can be drawn by [ParaView](https://www.paraview.org/download/)(Usage: Open the cube file by ParaView→click:Molecule→Apply→Gridded Data→Representation→Volume). Default is `'cube'`.
+Type of output file. `'cube'` and `'mp'` can be chosen. If `'cube'`, the output file can be drawn by [ParaView](https://www.paraview.org/download/)(Usage: Open the cube file by ParaView→click:Molecule→Apply→Gridded Data→Representation→Volume) in which al_em is displayed in atomic units. However, at this time(2018/11/27), note that the ParaView cannot well draw image for cuboid mesh(cubic mesh is no problem). Default is `'cube'`.
+
+- ***rot_type*** <br>
+Type of rotation for shape-template. `'degree'` and `'radian'` can be chosen. Default is `'radian'`.
 
 - ***typ_s(x)*** <br>
 Type of x-th shape-template. Maximum of x is `n_s`. `'ellipsoid'`, `'half-ellipsoid'`, `'elliptic-cylinder'`, `'triangular-cylinder'`, `'rectangular-cylinder'`, `'elliptic-cone'`, `'triangular-cone'`, `'rectangular-cone'`, and `'elliptic-ring'` can be chosen.
@@ -41,10 +44,10 @@ ID number of x-th shape-template. **This ID number must match the index of the i
 Information of x-th shape-template. This depends on `typ_s`. See `shape-template_manual.pdf` in detail.
 
 - ***ori_s(x,3)*** <br>
-Origin of x-th shape-template.
+Origin of x-th shape-template. Default is `0.0d0, 0.0d0, 0.0d0`.
 
 - ***rot_s(x,3)*** <br>
-Rotation angle of x-th shape-template. Rotation axes of `rot_s(x,1:3)` correspond to x-, y-, and z-axes, respectively. 
+Rotation angle of x-th shape-template. Rotation axes of `rot_s(x,1:3)` correspond to x-, y-, and z-axes, respectively. Priorities for rotation axes are x-, y-, and z-axes. Default is `0.0d0, 0.0d0, 0.0d0`.
 
 ## External Links
 
