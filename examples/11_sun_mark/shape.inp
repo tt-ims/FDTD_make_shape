@@ -2,8 +2,6 @@
 al_em    = 16.25d0, 16.25d0, 16.25d0
 dl_em    = 0.25d0, 0.25d0, 0.25d0
 n_s      = 5
-rot_type = 'degree'
-output   = 'cube'
 
 #Shaping inputs#######################################################
 typ_s(1)   = 'ellipsoid'
@@ -11,23 +9,18 @@ id_s(1)    = 1
 inf_s(1,1) = 4.0d0
 inf_s(1,2) = 4.0d0
 inf_s(1,3) = 4.0d0
-ori_s(1,:) = 0.0d0, 0.0d0, 0.0d0
-rot_s(1,:) = 0.0d0, 0.0d0, 0.0d0
 
 typ_s(2)   = 'ellipsoid'
 id_s(2)    = 1
 inf_s(2,1) = 1.0d0
 inf_s(2,2) = 8.0d0
 inf_s(2,3) = 1.0d0
-ori_s(2,:) = 0.0d0, 0.0d0, 0.0d0
-rot_s(2,:) = 0.0d0, 0.0d0, 0.0d0
 
 typ_s(3)   = 'ellipsoid'
 id_s(3)    = 1
 inf_s(3,1) = 1.0d0
 inf_s(3,2) = 8.0d0
 inf_s(3,3) = 1.0d0
-ori_s(3,:) = 0.0d0, 0.0d0, 0.0d0
 rot_s(3,:) = 45.0d0, 0.0d0, 0.0d0
 
 typ_s(4)   = 'ellipsoid'
@@ -35,7 +28,6 @@ id_s(4)    = 1
 inf_s(4,1) = 1.0d0
 inf_s(4,2) = 8.0d0
 inf_s(4,3) = 1.0d0
-ori_s(4,:) = 0.0d0, 0.0d0, 0.0d0
 rot_s(4,:) = 90.0d0, 0.0d0, 0.0d0
 
 typ_s(5)   = 'ellipsoid'
@@ -43,5 +35,4 @@ id_s(5)    = 1
 inf_s(5,1) = 1.0d0
 inf_s(5,2) = 8.0d0
 inf_s(5,3) = 1.0d0
-ori_s(5,:) = 0.0d0, 0.0d0, 0.0d0
 rot_s(5,:) = 135.0d0, 0.0d0, 0.0d0

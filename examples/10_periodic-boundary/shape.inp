@@ -1,0 +1,22 @@
+#CAUTION:#############################################################
+# * By setting iperiodic = 3,                                        #
+#   periodic boundary conditions have been applied.                  #
+# * Note that the coordinate system                                  #
+#   ranges from -al_em/2 to al_em/2 for &system/iperiodic=0          #
+#   while ranges from 0 to al_em for &system/iperiodic=3.            #
+#   (Therefore, we used ori_s here)                                  #
+######################################################################
+
+#Basic inputs#########################################################
+al_em     = 16.25d0, 16.25d0, 16.25d0
+dl_em     = 0.25d0, 0.25d0, 0.25d0
+n_s       = 1
+iperiodic = 3
+
+#Shaping inputs#######################################################
+typ_s(1)   = 'rectangular-cone'
+id_s(1)    = 1
+inf_s(1,1) = 8.0d0
+inf_s(1,2) = 6.0d0
+inf_s(1,3) = 12.0d0
+ori_s(1,:) = 8.0d0, 8.0d0, 8.0d0
