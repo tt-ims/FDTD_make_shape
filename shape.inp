@@ -5,7 +5,7 @@
 #   ( e.g. ori_s(x,:) and rot_s(x,:) )                               #
 # * For inf_s, you CANNOT use use colon(:) at the second index.      #
 #   ( e.g. inf_s(x,1), inf_s(x,2) and inf_s(x,3) )                   #
-# * iperiodic must be 0 or 3. Default is 0.                          #
+# * yn_periodic must be 'n' or 'y'. Default is 'n'.                  #
 # * output must be 'cube' or 'mp'. Default is 'cube'.                #
 # * rot_type must be 'radian' or 'degree'. Default is 'radian'.      #
 # * typ_s must be                                                    #
@@ -16,12 +16,12 @@
 ######################################################################
 
 #Basic inputs#########################################################
-al_em     = 16.25d0, 16.25d0, 16.25d0
-dl_em     = 0.25d0, 0.25d0, 0.25d0
-n_s       = 1
-iperiodic = 0
-output    = 'cube'
-rot_type  = 'degree'
+al_em       = 16.25d0, 16.25d0, 16.25d0
+dl_em       = 0.25d0, 0.25d0, 0.25d0
+n_s         = 1
+yn_periodic = 'n'
+output      = 'cube'
+rot_type    = 'degree'
 
 #Shaping inputs#######################################################
 typ_s(1)   = 'ellipsoid'

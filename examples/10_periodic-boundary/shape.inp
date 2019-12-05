@@ -1,17 +1,17 @@
 #CAUTION:#############################################################
-# * By setting iperiodic = 3,                                        #
+# * By setting yn_periodic = 'y',                                    #
 #   periodic boundary conditions have been applied.                  #
 # * Note that the coordinate system                                  #
-#   ranges from -al_em/2 to al_em/2 for &system/iperiodic=0          #
-#   while ranges from 0 to al_em for &system/iperiodic=3.            #
-#   (Therefore, we used ori_s here)                                  #
+#   ranges from -al_em/2 to al_em/2 for &system/yn_periodic='n'      #
+#   while ranges from 0 to al_em for &system/yn_periodic='y'.        #
+#   (Therefore, ori_s is defined in this input file)                 #
 ######################################################################
 
 #Basic inputs#########################################################
-al_em     = 16.25d0, 16.25d0, 16.25d0
-dl_em     = 0.25d0, 0.25d0, 0.25d0
-n_s       = 1
-iperiodic = 3
+al_em       = 16.25d0, 16.25d0, 16.25d0
+dl_em       = 0.25d0, 0.25d0, 0.25d0
+n_s         = 1
+yn_periodic = 'y'
 
 #Shaping inputs#######################################################
 typ_s(1)   = 'rectangular-cone'

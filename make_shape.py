@@ -22,7 +22,7 @@ def write_list(var1,var2):
 ###############################################################################
 #set maximum and initialize variables
 n_s_max=200+1 #+1 is introduced to ensure consistency with the input.
-al=0, 0, 0; dl=0, 0, 0; n_s=0; iperiodic=0;
+al=0, 0, 0; dl=0, 0, 0; n_s=0; yn_periodic='n';
 output='cube'; rot_type='radian';
 typ_s=init_1d_list(n_s_max)
 id_s=init_1d_list(n_s_max)
@@ -37,7 +37,7 @@ f.close()
 tmp_inp = [s.replace('d', 'e') for s in tmp_inp]
 tmp_inp = [s.replace('al_em','al') for s in tmp_inp]
 tmp_inp = [s.replace('el_em','dl') for s in tmp_inp]
-tmp_inp = [s.replace('iperioeic','iperiodic') for s in tmp_inp]
+tmp_inp = [s.replace('yn_perioeic','yn_periodic') for s in tmp_inp]
 tmp_inp = [s.replace('ie_s','id_s') for s in tmp_inp]
 tmp_inp = [s.replace('eegree','degree') for s in tmp_inp]
 tmp_inp = [s.replace('raeian','radian') for s in tmp_inp]
@@ -67,12 +67,12 @@ del i
 coo=np.zeros((3,max(g_num)))
 for i in range(3):
     for j in range(g_num[i]):
-        if iperiodic==0:
+        if yn_periodic=='n':
             if g_type[i]=='odd':
                 coo[i,j]=(j-(g_num[i]-1)/2)*dl[i]
             elif g_type[i]=='even':
                 coo[i,j]=(j-g_num[i]/2+0.5)*dl[i]
-        elif iperiodic==3:
+        elif yn_periodic=='y':
             coo[i,j]=j*dl[i]
 del i, j
 #translate to radian
@@ -83,8 +83,8 @@ if rot_type=='degree':
 ###############################################################################
 shape=np.zeros((g_num[0],g_num[1],g_num[2]))
 cal_tmp=0
-if iperiodic==0: l_max=1
-if iperiodic==3: l_max=27
+if yn_periodic=='n': l_max=1
+if yn_periodic=='y': l_max=27
 for n in range(1,n_s+1): #+1 is introduced to ensure consistency with the input.
     for i in range(g_num[0]):
         for j in range(g_num[1]):
@@ -268,7 +268,7 @@ elif output == 'mp':
 elapsed_time = ti.time() - start_time
 print ("elapsed time:{0}".format(elapsed_time) + "[sec]")
 #delete all variables
-del al, dl, n_s, iperiodic, output, rot_type, typ_s, id_s, inf_s, ori_s, rot_s, \
+del al, dl, n_s, yn_periodic, output, rot_type, typ_s, id_s, inf_s, ori_s, rot_s, \
     adj_err, n_s_max, g_num, g_type, coo, shape, \
     start_time, elapsed_time
 del f, init_1d_list, write_list
