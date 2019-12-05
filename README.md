@@ -26,7 +26,7 @@ Spacing of real-space grids in electromagnetic analysis. **This must match the i
 Number of shape-templates. Maximum is 200.
 
 - ***yn_periodic*** <br>
-Dimension for periodic boundary condition. `'n'` is for isolated systems, and `'y'` is for periodic systems. **Note that the coordinate system ranges from `-al_em/2` to `al_em/2` for `yn_periodic='n'` while ranges from `0` to `al_em` for `yn_periodic='y'`**. Default is `'n'`.
+Periodic boundary condition. `'n'` is for isolated systems, and `'y'` is for periodic systems. **Note that the coordinate system ranges from `-al_em/2` to `al_em/2` for `yn_periodic='n'` while ranges from `0` to `al_em` for `yn_periodic='y'`**. Default is `'n'`.
 
 - ***output*** <br>
 Type of output file. `'cube'` and `'mp'` can be chosen. If `'cube'`, the output file can be drawn by [ParaView](https://www.paraview.org/download/)(Usage: Open the cube file by ParaView→click:Molecule→Apply→Gridded Data→Representation→Volume) in which `al_em` is used in atomic units. However, at this time(2018/11/27), ParaView cannot well draw for cuboid mesh(cubic mesh is no problem). Default is `'cube'`.
