@@ -13,7 +13,7 @@ If you are windows user who uses python for the first time, I recommend to insta
 
 ## Usage
 
-`make_shape.py` is an executable file. `shape.inp` is a input file. `make_shape.py` and `shape.inp` **must be in the same directory**. When you use WinPython, open `make_shape.py` by Spyder.exe that is included in WinPython and push F5 key.<br><br>
+`make_shape.py` is an executable file. `shape.inp` is an input file. `make_shape.py` and `shape.inp` **must be in the same directory**. When you use WinPython, open `make_shape.py` by Spyder.exe that is included in WinPython and push F5 key.<br><br>
 The input parameters are as follows:<br>
 
 - ***al_em(3)*** <br>
