@@ -38,7 +38,7 @@ Type of rotation for shape-template. `'radian'` and `'degree'` can be chosen. De
 Type of x-th shape-template. Maximum of x is `n_s`. `'ellipsoid'`, `'half-ellipsoid'`, `'elliptic-cylinder'`, `'triangular-cylinder'`, `'rectangular-cylinder'`, `'elliptic-cone'`, `'triangular-cone'`, `'rectangular-cone'`, and `'elliptic-ring'` can be chosen.
 
 - ***id_s(x)*** <br>
-ID number of x-th shape-template. **This ID number must match the index of the input parameter in SALMON**(e.g. `epsilon`, `rmu`, and `sigma`).
+ID number of x-th shape-template. **This ID number must match the index of the input parameter in SALMON**(e.g. `epsilon_em`, `mu_em`, and `sigma_em`).
 
 - ***inf_s(x,:)*** <br>
 Information of x-th shape-template. This depends on `typ_s`. See `shape-template_manual.pdf` in detail.
