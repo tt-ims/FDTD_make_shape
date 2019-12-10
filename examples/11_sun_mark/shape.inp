@@ -2,6 +2,7 @@
 al_em    = 16.25d0, 16.25d0, 16.25d0
 dl_em    = 0.25d0, 0.25d0, 0.25d0
 n_s      = 5
+rot_type = 'degree'
 
 #Shaping inputs#######################################################
 typ_s(1)   = 'ellipsoid'
