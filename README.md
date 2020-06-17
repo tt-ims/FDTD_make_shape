@@ -53,4 +53,4 @@ Rotation angle of x-th shape-template. Rotation axes of `rot_s(x,1:3)` correspon
 
 ### SALMON Project
   - SALMON Official Website - https://salmon-tddft.jp/
-  - SALMON Github Repository - https://github.com/salmon-tddft/SALMON/
+  - SALMON Github Repository - https://github.com/SALMON-TDDFT
