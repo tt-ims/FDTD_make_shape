@@ -6,6 +6,7 @@
 # * For inf_s, you CANNOT use use colon(:) at the second index.      #
 #   ( e.g. inf_s(x,1), inf_s(x,2) and inf_s(x,3) )                   #
 # * yn_periodic must be 'n' or 'y'. Default is 'n'.                  #
+# * yn_copy_x~z must be 'n' or 'y'. Default is 'n'.                  #
 # * output must be 'cube' or 'mp'. Default is 'cube'.                #
 # * rot_type must be 'radian' or 'degree'. Default is 'radian'.      #
 # * typ_s must be                                                    #
@@ -20,6 +21,9 @@ al_em       = 16.25d0, 16.25d0, 16.25d0
 dl_em       = 0.25d0, 0.25d0, 0.25d0
 n_s         = 1
 yn_periodic = 'n'
+yn_copy_x   = 'n'
+yn_copy_y   = 'n'
+yn_copy_z   = 'n'
 output      = 'cube'
 rot_type    = 'degree'
 

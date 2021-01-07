@@ -12,6 +12,7 @@ al_em       = 16.25d0, 16.25d0, 16.25d0
 dl_em       = 0.25d0, 0.25d0, 0.25d0
 n_s         = 1
 yn_periodic = 'y'
+yn_copy_z   = 'y'
 
 #Shaping inputs#######################################################
 typ_s(1)   = 'rectangular-cone'
