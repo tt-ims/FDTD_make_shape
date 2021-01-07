@@ -17,12 +17,32 @@ def write_list(var1,var2):
     var2=' '.join(var2)
     var1.write(var2); var1.write('\n');
     return var1
+def rotate_x(x_tmp,y_tmp,z_tmp,rot_s):
+    x_o=ma.cos(rot_s[2]) \
+        *( ma.cos(rot_s[1])*x_tmp-ma.sin(rot_s[1]) \
+        *(ma.cos(rot_s[0])*z_tmp-ma.sin(rot_s[0])*y_tmp) ) \
+        +ma.sin(rot_s[2]) \
+        *(ma.sin(rot_s[0])*z_tmp+ma.cos(rot_s[0])*y_tmp) 
+    return x_o
+def rotate_y(x_tmp,y_tmp,z_tmp,rot_s):
+    y_o=-ma.sin(rot_s[2]) \
+        *( ma.cos(rot_s[1])*x_tmp-ma.sin(rot_s[1]) \
+        *(ma.cos(rot_s[0])*z_tmp-ma.sin(rot_s[0])*y_tmp) ) \
+        +ma.cos(rot_s[2]) \
+        *(ma.sin(rot_s[0])*z_tmp+ma.cos(rot_s[0])*y_tmp) 
+    return y_o
+def rotate_z(x_tmp,y_tmp,z_tmp,rot_s):
+    z_o=ma.sin(rot_s[1])*x_tmp \
+        +ma.cos(rot_s[1]) \
+        *(ma.cos(rot_s[0])*z_tmp-ma.sin(rot_s[0])*y_tmp)
+    return z_o
 ###############################################################################
 #load input file###############################################################
 ###############################################################################
 #set maximum and initialize variables
 n_s_max=200+1 #+1 is introduced to ensure consistency with the input.
 al=0, 0, 0; dl=0, 0, 0; n_s=0; yn_periodic='n';
+yn_copy_x='n'; yn_copy_y='n'; yn_copy_z='n';
 output='cube'; rot_type='radian';
 typ_s=init_1d_list(n_s_max)
 id_s=init_1d_list(n_s_max)
@@ -79,12 +99,43 @@ del i, j
 if rot_type=='degree':
     rot_s[:,:]=rot_s[:,:]/360*2*ma.pi
 ###############################################################################
+#make move matrix##############################################################
+###############################################################################
+#dtermine copy number
+copy_num=init_1d_list(3);
+if yn_copy_x=='y': copy_num[0]=3;
+else             : copy_num[0]=1;
+if yn_copy_y=='y': copy_num[1]=3;
+else             : copy_num[1]=1;
+if yn_copy_z=='y': copy_num[2]=3;
+else             : copy_num[2]=1;
+l_max=copy_num[0]*copy_num[1]*copy_num[2]
+#make move matrix
+move_x=np.zeros((n_s_max,l_max))
+move_y=np.zeros((n_s_max,l_max))
+move_z=np.zeros((n_s_max,l_max))
+for n in range(1,n_s+1): #+1 is introduced to ensure consistency with the input.
+    l=0;
+    for i in range(copy_num[0]):
+        for j in range(copy_num[1]):
+            for k in range(copy_num[2]):
+                ip_x=i; ip_y=j; ip_z=k;
+                if yn_copy_x=='y': ip_x=ip_x-1;
+                if yn_copy_y=='y': ip_y=ip_y-1;
+                if yn_copy_z=='y': ip_z=ip_z-1;
+                x_tmp=al[0]*ip_x
+                y_tmp=al[1]*ip_y
+                z_tmp=al[2]*ip_z
+                move_x[n,l]=rotate_x(x_tmp,y_tmp,z_tmp,rot_s[n,:])
+                move_y[n,l]=rotate_y(x_tmp,y_tmp,z_tmp,rot_s[n,:])
+                move_z[n,l]=rotate_z(x_tmp,y_tmp,z_tmp,rot_s[n,:])
+                l=l+1
+del n, i, j, k, l, ip_x, ip_y, ip_z, x_tmp, y_tmp, z_tmp
+###############################################################################
 #make shape####################################################################
 ###############################################################################
 shape=np.zeros((g_num[0],g_num[1],g_num[2]))
 cal_tmp=0
-if yn_periodic=='n': l_max=1
-if yn_periodic=='y': l_max=27
 for n in range(1,n_s+1): #+1 is introduced to ensure consistency with the input.
     for i in range(g_num[0]):
         for j in range(g_num[1]):
@@ -94,36 +145,14 @@ for n in range(1,n_s+1): #+1 is introduced to ensure consistency with the input.
                 y_tmp=coo[1,j]-ori_s[n,1]
                 z_tmp=coo[2,k]-ori_s[n,2]
                 #rotation
-                x_o=ma.cos(rot_s[n,2]) \
-                    *( ma.cos(rot_s[n,1])*x_tmp-ma.sin(rot_s[n,1]) \
-                    *(ma.cos(rot_s[n,0])*z_tmp-ma.sin(rot_s[n,0])*y_tmp) ) \
-                    +ma.sin(rot_s[n,2]) \
-                    *(ma.sin(rot_s[n,0])*z_tmp+ma.cos(rot_s[n,0])*y_tmp) 
-                y_o=-ma.sin(rot_s[n,2]) \
-                    *( ma.cos(rot_s[n,1])*x_tmp-ma.sin(rot_s[n,1]) \
-                    *(ma.cos(rot_s[n,0])*z_tmp-ma.sin(rot_s[n,0])*y_tmp) ) \
-                    +ma.cos(rot_s[n,2]) \
-                    *(ma.sin(rot_s[n,0])*z_tmp+ma.cos(rot_s[n,0])*y_tmp) 
-                z_o=ma.sin(rot_s[n,1])*x_tmp \
-                    +ma.cos(rot_s[n,1]) \
-                    *(ma.cos(rot_s[n,0])*z_tmp-ma.sin(rot_s[n,0])*y_tmp)
-                #initiate ip
-                ip_x=0; ip_y=0; ip_z=0;
-                for l in range(l_max):
+                x_o=rotate_x(x_tmp,y_tmp,z_tmp,rot_s[n,:])
+                y_o=rotate_y(x_tmp,y_tmp,z_tmp,rot_s[n,:])
+                z_o=rotate_z(x_tmp,y_tmp,z_tmp,rot_s[n,:])
+                for l in range(l_max): #this loop is used for copy
                     #determine point
-                    x=x_o+al[0]*ip_x
-                    y=y_o+al[1]*ip_y
-                    z=z_o+al[2]*ip_z
-                    #apply periodic boundary condition
-                    if   ip_z== 0: ip_z= 1
-                    elif ip_z== 1: ip_z=-1
-                    elif ip_z==-1: ip_z= 0
-                    if   ip_z== 0 and ip_y== 0: ip_y= 1
-                    elif ip_z== 0 and ip_y== 1: ip_y=-1
-                    elif ip_z== 0 and ip_y==-1: ip_y= 0
-                    if   ip_z== 0 and ip_y== 0 and ip_x== 0: ip_x= 1
-                    elif ip_z== 0 and ip_y== 0 and ip_x== 1: ip_x=-1
-                    elif ip_z== 0 and ip_y== 0 and ip_x==-1: ip_x= 0
+                    x=x_o+move_x[n,l]
+                    y=y_o+move_y[n,l]
+                    z=z_o+move_z[n,l]
                     #determine shape
                     if typ_s[n]=='ellipsoid':
                         cal_tmp=(x/(inf_s[n,1]/2))**2 \
@@ -188,7 +217,7 @@ for n in range(1,n_s+1): #+1 is introduced to ensure consistency with the input.
                             if cal_tmp>=1:
                                 shape[i,j,k]=id_s[n]
 del cal_tmp, n, i, j, k, l, l_max, x_tmp, y_tmp, z_tmp, \
-    x_o, y_o, z_o, x, y, z, ip_x, ip_y, ip_z
+    x_o, y_o, z_o, x, y, z
 ###############################################################################
 #output########################################################################
 ###############################################################################
@@ -268,10 +297,12 @@ elif output == 'mp':
 elapsed_time = ti.time() - start_time
 print ("elapsed time:{0}".format(elapsed_time) + "[sec]")
 #delete all variables
-del al, dl, n_s, yn_periodic, output, rot_type, typ_s, id_s, inf_s, ori_s, rot_s, \
-    adj_err, n_s_max, g_num, g_type, coo, shape, \
-    start_time, elapsed_time
-del f, init_1d_list, write_list
+del al, dl, n_s, yn_periodic, yn_copy_x, yn_copy_y, yn_copy_z, \
+    output, rot_type, typ_s, id_s, inf_s, ori_s, rot_s, \
+    adj_err, n_s_max, g_num, g_type, coo, \
+    copy_num, move_x, move_y, move_z, \
+    shape, start_time, elapsed_time
+del f, init_1d_list, write_list, rotate_x, rotate_y, rotate_z
 print('Finish!')
 
 
