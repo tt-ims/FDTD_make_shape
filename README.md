@@ -17,10 +17,10 @@ If you are windows user who uses python for the first time, I recommend to insta
 The input parameters are as follows:<br>
 
 - ***al_em(3)*** <br>
-Size of simulation box in electromagnetic analysis. **This must match the input parameter in SALMON**.
+Size of simulation box in electromagnetic analysis. **This must match the input keyword in SALMON**.
 
 - ***dl_em(3)*** <br>
-Spacing of real-space grids in electromagnetic analysis. **This must match the input parameter in SALMON**.
+Spacing of real-space grids in electromagnetic analysis. **This must match the input keyword in SALMON**.
 
 - ***n_s*** <br>
 Number of shape-templates. Maximum is 200.
