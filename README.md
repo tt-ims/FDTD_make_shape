@@ -22,17 +22,17 @@ Size of simulation box in electromagnetic analysis. **This must match the input 
 - ***dl_em(3)*** <br>
 Spacing of real-space grids in electromagnetic analysis. **This must match the input keyword in SALMON**.
 
-- ***n_s*** <br>
-Number of shape-templates. Maximum is 200.
-
 - ***yn_periodic*** <br>
 Periodic boundary condition. `'n'` is for isolated systems, and `'y'` is for periodic systems. **Note that the coordinate system ranges from `-al_em/2` to `al_em/2` for `yn_periodic='n'` while ranges from `0` to `al_em` for `yn_periodic='y'`**. Default is `'n'`.
 
-- ***yn_copy_x, yn_copy_x, yn_copy_z*** <br>
-When a part of shape-template penetrates to the outer side of the unit-cell, copy of the penetrating part is automatically generated into the unit cell for each axis. `yn_copy_x='y'`, `yn_copy_y='y'`, `yn_copy_z='y'` are executed for x, y, z axes, respectively(See example 10). Default is `'n'`.
-
 - ***output*** <br>
 Type of output file. `'cube'` and `'mp'` can be chosen. If `'cube'`, the output file can be drawn by [ParaView](https://www.paraview.org/download/)(Usage: Open the cube file by ParaView→click:Molecule→Apply→Gridded Data→Representation→Volume) in which `al_em` is used in atomic units. However, at this time(2018/11/27), ParaView cannot well draw for cuboid mesh(cubic mesh is no problem). Default is `'cube'`.
+
+- ***n_s*** <br>
+Number of shape-templates. Maximum is 200.
+
+- ***yn_copy_x, yn_copy_y, yn_copy_z*** <br>
+When a part of shape-template penetrates to the outer side of the unit-cell, copy of the penetrating part is automatically generated into the unit cell for each axis. `yn_copy_x='y'`, `yn_copy_y='y'`, `yn_copy_z='y'` are executed for x, y, z axes, respectively(See example 10). Default is `'n'`.
 
 - ***rot_type*** <br>
 Type of rotation for shape-template. `'radian'` and `'degree'` can be chosen. Default is `'radian'`.
